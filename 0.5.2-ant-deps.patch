@@ -1,0 +1,62 @@
+1) preqs is overriden to $JAVA_DIR in order to use system jars
+2) "all" includes tests which require hsqldb
+
+--- origsrc/ws-jaxme-0.5.2/ant/api.xml	2006-07-28 03:08:43.000000000 -0500
++++ src/ws-jaxme-0.5.2/ant/api.xml	2010-05-06 15:54:06.634300500 -0500
+@@ -25,7 +25,7 @@
+     </target>
+    
+     <path id="api.class.path">
+-        <pathelement location="${preqs}/xml-apis-1.3.02.jar"/>
++        <pathelement location="${preqs}/xml-apis.jar"/>
+     </path>
+ 
+     <target name="API.compile" depends="init">
+--- origsrc/ws-jaxme-0.5.2/ant/docs.xml	2005-11-22 01:31:59.000000000 -0600
++++ src/ws-jaxme-0.5.2/ant/docs.xml	2010-05-10 01:14:02.866179000 -0500
+@@ -72,7 +72,7 @@
+     <target name="Docs.all" depends="javadoc,docbook.html,old.releases,forrest,replace"
+           description="Generates the documentation"/>
+ 
+-    <target name="javadoc" depends="all"
++    <target name="javadoc" depends="JS.jar"
+           description="Generates the API documentation">
+         <delete dir="${build.apidocs}"/>
+         <mkdir dir="${build.apidocs}"/>
+--- origsrc/ws-jaxme-0.5.2/ant/jm.xml	2006-07-28 03:08:43.000000000 -0500
++++ src/ws-jaxme-0.5.2/ant/jm.xml	2010-05-06 15:54:31.051697100 -0500
+@@ -34,7 +34,7 @@
+       <pathelement location="${dist}/jaxmejs-${version}.jar"/>
+       <pathelement location="${dist}/jaxmexs-${version}.jar"/>
+       <pathelement location="${preqs}/ant.jar"/>
+-      <pathelement location="${preqs}/xml-apis-1.3.02.jar"/>
++      <pathelement location="${preqs}/xml-apis.jar"/>
+       <pathelement location="${preqs}/beaver.jar"/>
+       <pathelement location="${preqs}/antlr.jar"/>
+     </path>
+--- origsrc/ws-jaxme-0.5.2/ant/js.xml	2006-08-23 03:02:35.000000000 -0500
++++ src/ws-jaxme-0.5.2/ant/js.xml	2010-05-06 15:44:44.575152500 -0500
+@@ -35,8 +35,7 @@
+     <property name="src.js" location="${basedir}/src/js"/>
+ 
+     <path id="js.class.path">
+-      <pathelement location="${preqs}/log4j-1.2.8.jar"/>
+-      <pathelement location="${preqs}/ant-1.5.4.jar"/>
++      <pathelement location="${preqs}/log4j.jar"/>
+       <pathelement location="${preqs}/junit.jar"/>
+       <pathelement location="${preqs}/antlr.jar"/>
+       <pathelement location="${dist}/jaxmeapi-${version}.jar"/>
+--- origsrc/ws-jaxme-0.5.2/ant/pm.xml	2006-07-28 03:08:43.000000000 -0500
++++ src/ws-jaxme-0.5.2/ant/pm.xml	2010-05-06 15:55:01.644446900 -0500
+@@ -39,9 +39,9 @@
+         <pathelement location="${preqs}/beaver.jar"/>   
+         <pathelement location="${preqs}/hsqldb-1.7.1.jar"/>
+         <pathelement location="${preqs}/ant.jar"/>
+-        <pathelement location="${preqs}/xml-apis-1.3.02.jar"/>
++        <pathelement location="${preqs}/xml-apis.jar"/>
+         <pathelement location="${preqs}/xercesImpl.jar"/>
+-        <pathelement location="${preqs}/xmldb-api-20021118.jar"/>
++        <pathelement location="${preqs}/xmldb-api.jar"/>
+         <!-- These aren't in the CVS and aren't necessary for the build -->
+         <pathelement location="${preqs}/TaminoAPI4J.jar"/>
+         <pathelement location="${preqs}/TaminoJCA.jar"/>

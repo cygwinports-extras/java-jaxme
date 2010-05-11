@@ -1,0 +1,13 @@
+JAVA_CLASSPATH="antlr.jar:log4j.jar:xercesImpl.jar:xmldb.jar" # :hsqldb.jar"
+inherit ant
+
+DESCRIPTION="Apache Java/XML Binding implementation"
+HOMEPAGE="http://ws.apache.org/jaxme/index.html"
+SRC_URI="mirror://apache/${ORIG_PN//-//}/source/${P#java-}-src.tar.gz"
+PATCH_URI="0.5.2-ant-deps.patch"
+
+DISTCLEANFILES="prerequisites/*.jar"
+ANT_BUILD_ARGS="-Dpreqs=${JAVA_DIR}"
+ANT_BUILD_TARGETS="JS.jar javadoc"
+ANT_INSTALL_JARS="dist/*.jar"
+ANT_INSTALL_JAVADOC="build/docs/src/documentation/content/apidocs"

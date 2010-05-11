@@ -1,0 +1,8 @@
+category: Java
+requires: java-antlr java-log4j java-xerces2 java-xmldb
+sdesc: "Java/XML Binding (JAXB) implementation"
+ldesc: "JaxMe 2 is an open source implementation of JAXB, the 
+specification for Java/XML binding. A Java/XML binding compiler takes as 
+input a schema description (in most cases an XML schema but it may be a 
+DTD, a RelaxNG schema, a Java class inspected via reflection or a 
+database schema). The output is a set of Java classes."
